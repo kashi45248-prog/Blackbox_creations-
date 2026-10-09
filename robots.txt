@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kashi45248-prog.github.io/Blackbox_creations-/sitemap.xml
