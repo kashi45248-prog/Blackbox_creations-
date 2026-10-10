@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Combine Meshes and Reduce Draw Calls in Unity | BlackBox Creations</title>
+<meta name="description" content="Learn how to combine meshes and reduce draw calls in Unity — from manual Mesh.CombineMeshes to one-click mesh combining with texture atlases.">
+<link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-combine-meshes-reduce-draw-calls.html">
+<meta property="og:title" content="How to Combine Meshes and Reduce Draw Calls in Unity">
+<meta property="og:description" content="Every mesh is a draw call. Learn how combining meshes slashes draw calls — the manual way and the one-click way.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Combine Meshes and Reduce Draw Calls in Unity",
+"description":"Tutorial: combine meshes in Unity to reduce draw calls, including texture atlas baking.",
+"author":{"@type":"Organization","name":"BlackBox Creations"},
+"mainEntityOfPage":"https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-combine-meshes-reduce-draw-calls.html"}
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Black<span>Box</span> Creations</a>
+<nav class="main"><a href="index.html">Tools</a><a href="index.html#bundle">Bundles</a><a href="index.html#faq">FAQ</a></nav>
+</div></header>
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Tools</a> / Tutorials / Combine Meshes</p>
+<article class="prose tutorial">
+<span class="badge">Tutorial</span>
+<h1>How to Combine Meshes and Reduce Draw Calls in Unity</h1>
+<p class="tag">Every mesh renderer in your scene costs at least one draw call. A room full of props can mean hundreds of draw calls — and a slideshow on mobile. Combining meshes is the fix. Here's how it works, the manual way and the fast way.</p>
+
+<h2>Why draw calls matter</h2>
+<p>A draw call is the CPU telling the GPU "draw this." Each one has overhead: state changes, shader setup, data transfer. A few hundred is fine on PC; on mobile and VR (especially Meta Quest), high draw calls are the number one frame-rate killer. Unity's profiler will show you the count — if it's in the hundreds and your scene isn't that complex, mesh combining is your biggest win.</p>
+
+<h2>The manual way: Mesh.CombineMeshes</h2>
+<p>Unity gives you <code>Mesh.CombineMeshes()</code> — you collect the meshes, merge them into one, and render the result in a single draw call. It works, but there are catches:</p>
+<ol class="steps">
+<li><strong>Materials multiply draw calls.</strong> Combining only helps if the meshes share a material. Ten meshes with ten materials still need ten draw calls after combining — unless you also merge the materials.</li>
+<li><strong>Texture atlases are manual work.</strong> Merging materials means baking their textures into one atlas — UV remapping by hand is tedious and error-prone.</li>
+<li><strong>It's code, not a button.</strong> You write the combine script, handle edge cases, and re-run it every time the art changes.</li>
+</ol>
+
+<h2>The texture atlas problem</h2>
+<p>This is where most developers get stuck. Combining geometry is the easy half; the hard half is the materials. Each unique material is a draw call, so a proper combine also bakes all the source textures into a single atlas and remaps every UV. Done by hand, that's an afternoon per prop set. Done wrong, your models come out with scrambled textures.</p>
+
+<h2>The one-click way: MeshWeld Pro Lite</h2>
+<p>MeshWeld Pro Lite does the whole job inside the Unity Editor: select your static meshes, click once, and it merges the geometry <em>and</em> bakes a texture atlas so the combined mesh keeps its look — in a single draw call instead of dozens. No runtime code, no manual UV work, and your original objects stay untouched so the workflow is non-destructive.</p>
+<ol class="steps">
+<li>Select the static meshes you want to merge.</li>
+<li>Run the combine — geometry merges, textures bake into one atlas.</li>
+<li>Drop the combined mesh in your scene and watch the draw call count fall in the profiler.</li>
+</ol>
+<p>It's built for exactly the scenes that suffer most: mobile games, VR projects, and environment-heavy levels assembled from lots of small props.</p>
+
+<div class="cta-box">
+<h3>Combine meshes in one click</h3>
+<p>MeshWeld Pro Lite — mesh combining with texture atlas baking, right in the Unity Editor. <strong>$22.99</strong> direct (save $3 vs the Unity Asset Store).</p>
+<a class="btn" href="https://buy.polar.sh/polar_cl_D91iuwdBOHeKdr3YOkamnnODOGd8SE6rfNXc81OTw5r">Get MeshWeld Pro Lite — $22.99</a>
+<p class="alt">Or see <a href="meshweld-pro-lite-mesh-combiner.html">full details</a> · Also on the <a href="https://assetstore.unity.com/packages/package/374896">Unity Asset Store</a> ($25.99)</p>
+</div>
+
+<h2>When combining isn't enough</h2>
+<p>Draw calls are one half of rendering performance; polygon count is the other. If your meshes are also too heavy, simplify them first (see our guide to <a href="tutorial-reduce-polygon-count.html">reducing polygon count</a>), then combine. And for the complete pipeline — simplify, generate LODs, and combine in one pass — there's <a href="mesh-suite-lod-optimizer.html">One Click Mesh Suite</a>.</p>
+</article>
+<div class="related"><h2 class="sec">Related tools</h2><div class="grid">
+<div class="card"><h3>Mesh Simplifier</h3><p>Reduce triangle counts before combining — lighter meshes, same look.</p><div class="row"><span class="price">$22.99</span><a class="buy" href="mesh-simplifier.html">View →</a></div></div>
+<div class="card"><h3>One Click Mesh Suite</h3><p>Simplify, LOD, and combine in one integrated workflow.</p><div class="row"><span class="price">$71.99</span><a class="buy" href="mesh-suite-lod-optimizer.html">View →</a></div></div>
+</div></div>
+</div>
+<footer class="site"><div class="wrap">
+<span>© 2026 BlackBox Creations. All rights reserved.</span>
+<span><a href="https://assetstore.unity.com/publishers/138810">Unity Asset Store</a> · <a href="sitemap.xml">Sitemap</a></span>
+</div></footer>
+</body>
+</html>

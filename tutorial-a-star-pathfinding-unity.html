@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A* Pathfinding in Unity Without NavMesh Baking | BlackBox Creations</title>
+<meta name="description" content="Learn A* pathfinding in Unity — when Unity's NavMesh falls short (2D, runtime changes, grid games) and how grid-based A* pathfinding works for agents and obstacles.">
+<link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-a-star-pathfinding-unity.html">
+<meta property="og:title" content="A* Pathfinding in Unity Without NavMesh Baking">
+<meta property="og:description" content="NavMesh not cutting it? A* grid pathfinding handles 2D, runtime changes, and tile-based games with no baking.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"A* Pathfinding in Unity Without NavMesh Baking",
+"description":"Tutorial: A* grid pathfinding in Unity as an alternative to NavMesh, for 2D games, grid worlds, and dynamic obstacles.",
+"author":{"@type":"Organization","name":"BlackBox Creations"},
+"mainEntityOfPage":"https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-a-star-pathfinding-unity.html"}
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Black<span>Box</span> Creations</a>
+<nav class="main"><a href="index.html">Tools</a><a href="index.html#bundle">Bundles</a><a href="index.html#faq">FAQ</a></nav>
+</div></header>
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Tools</a> / Tutorials / A* Pathfinding</p>
+<article class="prose tutorial">
+<span class="badge">Tutorial</span>
+<h1>A* Pathfinding in Unity Without NavMesh Baking</h1>
+<p class="tag">Unity's NavMesh is great — until it isn't. 2D games, tile-based worlds, procedurally generated levels, and obstacles that move at runtime all fight against baked navigation. A* grid pathfinding is the answer. Here's how it works.</p>
+
+<h2>Where NavMesh struggles</h2>
+<p>NavMesh requires baking navigation data ahead of time. That breaks down when your world changes at runtime: destructible terrain, player-built walls, procedural dungeons, or anything in 2D (NavMesh is fundamentally a 3D system). You can rebake at runtime, but it's expensive and complex. For these games, you need pathfinding that thinks in grids, not baked meshes.</p>
+
+<h2>How A* works (the 30-second version)</h2>
+<p>A* (A-star) searches a grid of walkable cells from start to goal, always expanding the most promising cell first — the one with the lowest combined cost of "distance traveled so far" plus "estimated distance to goal." That heuristic is what makes it fast: unlike brute-force search, A* heads toward the target instead of wandering. The result is the shortest walkable path, even around complex obstacles.</p>
+
+<h2>Grid pathfinding in practice</h2>
+<p>A practical A* setup has four pieces:</p>
+<ol class="steps">
+<li><strong>A grid</strong> over your world — cells marked walkable or blocked, in 2D or 3D.</li>
+<li><strong>Agents</strong> that request paths from A to B.</li>
+<li><strong>Obstacles</strong> that mark cells unwalkable — ideally updatable at runtime.</li>
+<li><strong>A simple API</strong> — "give me the waypoints from here to there" — so your game code stays clean.</li>
+</ol>
+<p>The grid approach shines for tower defense, RTS, roguelikes, puzzle games, and any tile-based design — genres where NavMesh was never the right tool.</p>
+
+<h2>The fast way: NexPath</h2>
+<p>NexPath is a ready-made A* pathfinding system for Unity: grid-based navigation for 2D and 3D, agents with dynamic obstacle updates, and a simple waypoint API — no NavMesh baking, no pathfinding math to write yourself. Drop it in, define your grid, and your characters start moving intelligently.</p>
+
+<div class="cta-box">
+<h3>A* pathfinding, no baking required</h3>
+<p>NexPath — grid-based A* pathfinding for 2D/3D with dynamic obstacles and a simple waypoint API. <strong>$17.99</strong> direct (save $2 vs the Unity Asset Store).</p>
+<a class="btn" href="https://buy.polar.sh/polar_cl_ydpBIA2YPtPblFsIodsQNcN70mqnPjjrIlI3a0ovsLs">Get NexPath — $17.99</a>
+<p class="alt">Or see <a href="nexpath-a-star-pathfinding.html">full details</a> · Also on the <a href="https://assetstore.unity.com/packages/package/396302">Unity Asset Store</a> ($19.99)</p>
+</div>
+
+<h2>Performance notes</h2>
+<p>A* on large grids with many agents can get expensive — keep your grid resolution as coarse as your gameplay allows, cache paths instead of recomputing every frame, and stagger path requests across frames for crowds. A well-tuned grid solver handles hundreds of agents without breaking a sweat.</p>
+</article>
+<div class="related"><h2 class="sec">Related tools</h2><div class="grid">
+<div class="card"><h3>Smart Prop Placement</h3><p>Scatter obstacles and decor across your pathfinding grids.</p><div class="row"><span class="price">$13.99</span><a class="buy" href="smart-prop-placement.html">View →</a></div></div>
+<div class="card"><h3>UDP Networking Pro</h3><p>Sync agent positions in LAN multiplayer sessions.</p><div class="row"><span class="price">$13.99</span><a class="buy" href="udp-networking-pro.html">View →</a></div></div>
+</div></div>
+</div>
+<footer class="site"><div class="wrap">
+<span>© 2026 BlackBox Creations. All rights reserved.</span>
+<span><a href="https://assetstore.unity.com/publishers/138810">Unity Asset Store</a> · <a href="sitemap.xml">Sitemap</a></span>
+</div></footer>
+</body>
+</html>

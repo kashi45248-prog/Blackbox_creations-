@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Generate LODs Automatically in Unity | BlackBox Creations</title>
+<meta name="description" content="Learn how to generate LODs automatically in Unity — what level of detail is, how LODGroup works, and how to batch-generate LOD levels for entire model libraries.">
+<link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-generate-lods-automatically-unity.html">
+<meta property="og:title" content="How to Generate LODs Automatically in Unity">
+<meta property="og:description" content="Stop hand-authoring LOD levels. Generate them automatically — even in batches across whole libraries.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Generate LODs Automatically in Unity",
+"description":"Tutorial: automatically generate LOD levels in Unity, including batch LOD generation for model libraries.",
+"author":{"@type":"Organization","name":"BlackBox Creations"},
+"mainEntityOfPage":"https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-generate-lods-automatically-unity.html"}
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Black<span>Box</span> Creations</a>
+<nav class="main"><a href="index.html">Tools</a><a href="index.html#bundle">Bundles</a><a href="index.html#faq">FAQ</a></nav>
+</div></header>
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Tools</a> / Tutorials / Generate LODs</p>
+<article class="prose tutorial">
+<span class="badge">Tutorial</span>
+<h1>How to Generate LODs Automatically in Unity</h1>
+<p class="tag">Level of Detail (LOD) is how games render distant objects cheaply: full quality up close, simplified versions far away. The problem is authoring those simplified versions — here's how to generate them automatically instead of by hand.</p>
+
+<h2>What LOD actually does</h2>
+<p>Unity's <strong>LODGroup</strong> component swaps between model versions based on distance (or screen size). LOD0 is the full-quality mesh; LOD1, LOD2 and beyond are progressively simpler. A tree 200 meters away doesn't need 50,000 triangles — a 500-triangle version looks identical at that distance and costs 100x less to render. Without LODs, you're paying full price for detail nobody can see.</p>
+
+<h2>The manual way (and why nobody does it)</h2>
+<p>Traditionally, an artist creates each LOD level by hand in Blender or Maya: decimate, clean up, export, repeat — per model, per level. For a library of 200 props, that's weeks of mind-numbing work. Most indie teams simply skip LODs and ship the performance hit. Automatic generation is the only sane approach at scale.</p>
+
+<h2>Automatic LOD generation</h2>
+<p>Automatic LOD generators decimate your meshes algorithmically — reducing triangle counts while preserving silhouettes — and wire the results straight into Unity's LODGroup. You set how aggressive each level should be (e.g. LOD1 at 50%, LOD2 at 25%, LOD3 at 10%), and the tool produces every level for you.</p>
+
+<h2>Batch generation for whole libraries</h2>
+<p>The real time-saver is batching: point the generator at a folder of models and process dozens or hundreds in one pass, each with LOD levels tuned to your targets. What took weeks by hand takes an afternoon. This is exactly what <strong>Batch LOD Generator</strong> does — one click, entire model libraries, output ready for LODGroup, all in the Editor with zero runtime cost.</p>
+<ol class="steps">
+<li>Select the models (or a whole folder) you want LODs for.</li>
+<li>Set your reduction targets per LOD level.</li>
+<li>Generate — every model gets its LOD chain, wired into LODGroup automatically.</li>
+</ol>
+
+<div class="cta-box">
+<h3>Generate LODs in one click</h3>
+<p>Batch LOD Generator — automatic LOD levels for entire model libraries, LODGroup-ready. <strong>$22.99</strong> direct (save $3 vs the Unity Asset Store).</p>
+<a class="btn" href="https://buy.polar.sh/polar_cl_IG9QKeNylpKWgwkL8CFT3dKOFWDbI4krzSL2m3GDezH">Get Batch LOD Generator — $22.99</a>
+<p class="alt">Or see <a href="batch-lod-generator.html">full details</a> · Also on the <a href="https://assetstore.unity.com/packages/package/374654">Unity Asset Store</a> ($25.99)</p>
+</div>
+
+<h2>LODs are one piece of the puzzle</h2>
+<p>For maximum performance, pair LODs with polygon reduction on your base meshes (see <a href="tutorial-reduce-polygon-count.html">how to reduce polygon count</a>) and mesh combining for draw calls (see <a href="tutorial-combine-meshes-reduce-draw-calls.html">how to combine meshes</a>). Or get all three in a single workflow with <a href="mesh-suite-lod-optimizer.html">One Click Mesh Suite</a>.</p>
+</article>
+<div class="related"><h2 class="sec">Related tools</h2><div class="grid">
+<div class="card"><h3>Mesh Simplifier</h3><p>Reduce base mesh density before generating LOD levels.</p><div class="row"><span class="price">$22.99</span><a class="buy" href="mesh-simplifier.html">View →</a></div></div>
+<div class="card"><h3>One Click Mesh Suite</h3><p>LOD generation plus simplification and combining in one suite.</p><div class="row"><span class="price">$71.99</span><a class="buy" href="mesh-suite-lod-optimizer.html">View →</a></div></div>
+</div></div>
+</div>
+<footer class="site"><div class="wrap">
+<span>© 2026 BlackBox Creations. All rights reserved.</span>
+<span><a href="https://assetstore.unity.com/publishers/138810">Unity Asset Store</a> · <a href="sitemap.xml">Sitemap</a></span>
+</div></footer>
+</body>
+</html>

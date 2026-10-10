@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity Multiplayer with UDP: LAN Games Without Servers | BlackBox Creations</title>
+<meta name="description" content="Learn how to build Unity multiplayer with UDP — low-latency LAN networking, zero-config device discovery, and why UDP beats TCP for real-time games.">
+<link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-udp-networking-unity-lan.html">
+<meta property="og:title" content="Unity Multiplayer with UDP: LAN Games Without Servers">
+<meta property="og:description" content="Real-time Unity multiplayer over LAN with UDP — no servers, no hosting, zero-config discovery.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Unity Multiplayer with UDP: LAN Games Without Servers",
+"description":"Tutorial: building low-latency Unity multiplayer with UDP on local networks, with automatic device discovery.",
+"author":{"@type":"Organization","name":"BlackBox Creations"},
+"mainEntityOfPage":"https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-udp-networking-unity-lan.html"}
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Black<span>Box</span> Creations</a>
+<nav class="main"><a href="index.html">Tools</a><a href="index.html#bundle">Bundles</a><a href="index.html#faq">FAQ</a></nav>
+</div></header>
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Tools</a> / Tutorials / UDP Networking</p>
+<article class="prose tutorial">
+<span class="badge">Tutorial</span>
+<h1>Unity Multiplayer with UDP: LAN Games Without Servers</h1>
+<p class="tag">Not every multiplayer game needs the internet. Party games, VR arcades, classrooms, and playtests all happen on local networks — where UDP gives you the lowest latency and zero hosting costs. Here's how it works.</p>
+
+<h2>Why UDP for real-time games</h2>
+<p>TCP guarantees delivery but waits and retries — great for files, terrible for a player position that's already outdated. UDP fires packets and moves on: lower latency, no head-of-line blocking, and if one position update is lost, the next one arrives milliseconds later anyway. That's why virtually all real-time games use UDP under the hood.</p>
+
+<h2>The two hard problems in LAN multiplayer</h2>
+<ol class="steps">
+<li><strong>Discovery.</strong> How do devices find each other without typing IP addresses? The answer is broadcast discovery — devices announce themselves on the local network and listen for others. Building this reliably across PC, mobile, and headsets is fiddly work.</li>
+<li><strong>Messaging.</strong> Once connected, you need fast, simple send/receive for positions, inputs, and game events — without dragging in a heavyweight networking framework.</li>
+</ol>
+
+<h2>Zero-config LAN with UDP Networking Pro</h2>
+<p>UDP Networking Pro solves both: devices on the same network discover each other automatically — no IP entry, no hosted server, no accounts — and exchange low-latency UDP messages across VR, PC, and mobile. It's built for exactly the sessions that don't need the internet: co-located VR, party games, demos, and classroom setups.</p>
+
+<div class="cta-box">
+<h3>LAN multiplayer without servers</h3>
+<p>UDP Networking Pro — zero-configuration device discovery and low-latency UDP messaging for VR, PC, and mobile. <strong>$13.99</strong> direct (save $2 vs the Unity Asset Store).</p>
+<a class="btn" href="https://buy.polar.sh/polar_cl_kIxCewdEu4T2UrRtSNXFbAtiihP2eqh7w1RHd1SoHkS">Get UDP Networking Pro — $13.99</a>
+<p class="alt">Or see <a href="udp-networking-pro.html">full details</a> · Also on the <a href="https://assetstore.unity.com/packages/package/370348">Unity Asset Store</a> ($15.99)</p>
+</div>
+
+<h2>When LAN UDP is (and isn't) the answer</h2>
+<p>LAN UDP is perfect when players share a network: arcades, parties, offices, playtests. If your players are across the internet, you'll need relay servers or a hosted backend instead. But for the huge category of "people in the same room," nothing beats the simplicity — no server bills, no accounts, no latency to a distant data center.</p>
+</article>
+<div class="related"><h2 class="sec">Related tools</h2><div class="grid">
+<div class="card"><h3>ArcCanvas</h3><p>Curved VR UI for your multiplayer VR sessions.</p><div class="row"><span class="price">$17.99</span><a class="buy" href="arccanvas-curved-vr-ui-toolkit.html">View →</a></div></div>
+<div class="card"><h3>NexPath</h3><p>Sync A*-driven agents across your LAN game.</p><div class="row"><span class="price">$17.99</span><a class="buy" href="nexpath-a-star-pathfinding.html">View →</a></div></div>
+</div></div>
+</div>
+<footer class="site"><div class="wrap">
+<span>© 2026 BlackBox Creations. All rights reserved.</span>
+<span><a href="https://assetstore.unity.com/publishers/138810">Unity Asset Store</a> · <a href="sitemap.xml">Sitemap</a></span>
+</div></footer>
+</body>
+</html>
