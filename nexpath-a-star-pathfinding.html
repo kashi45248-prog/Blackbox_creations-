@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexPath: A* Grid Pathfinding &amp; Navigation for Unity | BlackBox Creations</title>
+<title>NexPath: A* Pathfinding for Unity (Grid-Based)</title>
 <meta name="description" content="NexPath brings fast A* grid pathfinding to Unity. Agents, obstacles and dynamic navigation for 2D and 3D games. $17.99, instant download.">
 <link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/nexpath-a-star-pathfinding.html">
 <meta property="og:title" content="NexPath: A* Grid Pathfinding for Unity">
@@ -39,16 +39,33 @@
 <p class="alt">Also on the <a href="https://assetstore.unity.com/packages/package/396302">Unity Asset Store</a></p>
 </div>
 </div>
+<figure style="margin:0 0 24px"><img src="itch-covers/cover-nexpath.png" alt="NexPath A-star grid pathfinding showing an agent navigating around obstacles in Unity" width="630" height="500" loading="lazy" style="max-width:100%;height:auto;border-radius:12px;display:block"></figure>
 <div class="prose">
 <h2>Why A* on a grid?</h2>
 <p>For tile-based and grid-based games, A* is the right algorithm: optimal paths, predictable performance, easy debugging. NexPath packages it as a Unity-native system so you spend your time on gameplay, not graph theory.</p>
 <h2>Who is it for?</h2>
 <p>Developers of strategy games, roguelikes, tower defense, tactics and RPGs — any Unity game where characters need to navigate around obstacles intelligently.</p>
 <div class="tutorial-link">📖 <strong>Free guide:</strong> <a href="tutorial-a-star-pathfinding-unity.html">A* Pathfinding in Unity Without NavMesh Baking</a></div>
+
+<h2>How grid-based A* works in practice</h2>
+<p>The idea is simple enough to explain in a minute. You lay a grid over your level — or your level already is a grid of tiles. Each cell is marked walkable or blocked. When an agent needs to move, A* searches the grid for the cheapest route from start to goal, weighing distance already traveled against estimated distance remaining, and returns a path: a list of cells the agent can follow. Obstacles just work, because blocked cells are never part of a valid path. NexPath packages that loop — grid, query, path, follow — as a Unity-native system, so your code asks for paths and moves agents instead of implementing graph search.</p>
+<h2>Grids vs. NavMesh: when NexPath wins</h2>
+<p>Unity's NavMesh is excellent for organic 3D terrain. But plenty of games are not organic terrain. Tile-based strategy games, roguelikes with procedural dungeons, tower defense maps, tactics grids, voxel worlds — these games think in cells, and forcing them onto a baked navmesh adds work instead of removing it. Grids are also trivially debuggable: you can see every cell, which makes a broken path a five-minute fix instead of a rebake-and-pray cycle. And when your world changes at runtime — walls built, bridges destroyed — updating grid cells beats rebaking a navmesh by a wide margin.</p>
+<h2>Dynamic obstacles without the pain</h2>
+<p>Static pathfinding is the easy part; games are dynamic. Units move, buildings go up, doors lock. NexPath handles dynamic navigation: mark cells blocked or free as the world changes and agents re-path around the new reality. For tower defense (towers block tiles), RTS (buildings reshape the map) and roguelikes (doors, traps, cave-ins), this is the difference between pathfinding that works in the trailer and pathfinding that works in the game.</p>
+<h2>One system for 2D and 3D</h2>
+<p>Top-down 2D, isometric 2D, 3D grid movement — NexPath covers all three from the same system. That matters more than it sounds: many projects start 2D and add a 3D mode, or prototype in 2D before committing. One pathfinding tool across both saves you from ripping out navigation mid-project.</p>
+
+<h2>Getting started checklist</h2>
+<p>A practical way to evaluate NexPath in an afternoon: first, define your grid to match your game's natural unit — one cell per tile for tile games, a sensible world-space cell size for freeform maps. Second, mark your static obstacles and confirm agents route around them. Third, flip some cells at runtime — open a door, drop a barricade — and watch agents re-path. Fourth, spawn your realistic agent count and check frame timing. If those four steps behave, the tool fits your game; grid pathfinding either clicks with your design in the first hour or it was never the right approach.</p>
 </div>
 <div class="faq">
 <details><summary>2D or 3D?</summary><p>Both. NexPath handles 2D grids (top-down, isometric) and 3D grid navigation.</p></details>
 <details><summary>How is this different from NavMesh?</summary><p>Unity's NavMesh bakes navigation meshes; NexPath works on grids, which many game types (tiles, voxels, roguelikes) prefer for control and predictability.</p></details>
+
+<details><summary>Can paths update while the game is running?</summary><p>Yes — dynamic navigation is a core feature. Change which cells are blocked at runtime and agents find new routes around the changes.</p></details>
+<details><summary>How big a grid can it handle?</summary><p>Pathfinding cost scales with grid size and agent count, like any A* implementation. Keep the grid tight around the actual play area rather than covering the whole world, and profile with your real agent counts — standard practice for grid pathfinding.</p></details>
+<details><summary>Is grid pathfinding deterministic?</summary><p>Yes — given the same grid and the same query, A* returns the same path every time. That predictability is one reason grid games prefer it: replays and debugging all get easier.</p></details>
 </div>
 <div class="related"><h2 class="sec">Related tools</h2><div class="grid">
 <div class="card"><h3>Smart Prop Placement</h3><p>Fill the maps your agents navigate — intelligent prop scattering.</p><div class="row"><span class="price">$13.99</span><a class="buy" href="smart-prop-placement.html">View →</a></div></div>

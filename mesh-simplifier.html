@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mesh Simplifier: Reduce Tris &amp; Vertices in Unity | BlackBox Creations</title>
+<title>Reduce Polygon Count in Unity – Mesh Simplifier</title>
 <meta name="description" content="Mesh Simplifier reduces triangle and vertex counts in Unity while preserving shape. Lightweight meshes for mobile and VR. $23.99, instant download.">
 <link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/mesh-simplifier.html">
 <meta property="og:title" content="Mesh Simplifier: Reduce Tris & Vertices in Unity">
@@ -39,16 +39,33 @@
 <p class="alt">Also on the <a href="https://assetstore.unity.com/packages/package/374934">Unity Asset Store</a></p>
 </div>
 </div>
+<figure style="margin:0 0 24px"><img src="itch-covers/cover-meshsimplifier.png" alt="Mesh Simplifier reducing polygon count on a Unity model while preserving its shape" width="630" height="500" loading="lazy" style="max-width:100%;height:auto;border-radius:12px;display:block"></figure>
 <div class="prose">
 <h2>Why simplify meshes?</h2>
 <p>Models authored for film or marketplaces routinely carry 10x the polygons a game needs. Manually retopologizing each one is weeks of work; simplification algorithms do it in seconds with quality that holds up at game-viewing distances.</p>
 <h2>Who is it for?</h2>
 <p>Mobile and VR developers on strict polygon budgets, and anyone importing high-poly marketplace assets into real-time scenes.</p>
 <div class="tutorial-link">📖 <strong>Free guide:</strong> <a href="tutorial-reduce-polygon-count.html">How to Reduce Polygon Count in Unity</a></div>
+
+<h2>How the simplification works</h2>
+<p>Mesh Simplifier takes a high-polygon mesh and produces a lower-polygon version of the same model, spending its triangle budget where it matters: silhouettes, hard edges, and visible features survive, while redundant interior detail — the flat areas carrying thousands of triangles that add nothing visually — gets removed first. The result holds up at game-viewing distances, which is the only place it needs to hold up. The whole operation takes seconds. Compare that with manual retopology, which is skilled, slow work measured in hours per asset — and you start to see why simplification is usually the first optimization pass on any imported art.</p>
+<h2>The preview workflow</h2>
+<p>Aggression is a dial, not a gamble. You set the target reduction, preview the result, and only commit when the model still looks right. That loop — target, preview, commit — is the safe way to simplify: it lets you push background props hard while keeping hero assets conservative, and it means you never discover a ruined mesh after the fact.</p>
+<h2>Where it pays off fastest</h2>
+<p>The classic win is marketplace and stock art. Models authored for film, archviz, or asset stores routinely ship with ten times the polygons a game needs — a 200k-triangle chair in a mobile game is not a flex, it is a bug. Photogrammetry scans and CAD imports are the same story: gorgeous, dense, and completely unsuitable for real time until simplified. If your profiler is red on vertex processing, this is usually the fastest fix available.</p>
+<h2>How aggressive should you go?</h2>
+<p>A practical rule: background props and distant scenery can often lose 70–90% of their triangles without anyone noticing; mid-ground objects sit comfortably at 50–70%; hero assets that the camera inspects up close deserve a light touch and a careful preview. Always judge at game-viewing distance, not in a zoomed-in inspector — players never see your mesh from two centimeters away.</p>
+
+<h2>Simplification in a real asset pipeline</h2>
+<p>Where does the simplifier sit in a working pipeline? Right after import, before anything else. The pattern that works: import the high-poly source, duplicate it into an optimized variant, simplify the variant to your target, and keep the original archived in the project. LODs and combining come after — there is no point generating LOD levels from a 200k-triangle source when a 20k simplified version produces cleaner results in a tenth of the time. Teams that treat simplification as the first gate, not a last resort, end up with asset libraries that stay shippable instead of slowly bloating.</p>
 </div>
 <div class="faq">
 <details><summary>Will it destroy my model's shape?</summary><p>No — the simplifier is designed to preserve silhouettes and important features while removing redundant interior detail.</p></details>
 <details><summary>Can I control how aggressive it is?</summary><p>Yes — you set the target reduction and preview the result before committing.</p></details>
+
+<details><summary>Will UVs and normals survive simplification?</summary><p>The simplifier is built to preserve the model's overall shape and appearance, not just its silhouette. As always, check the preview before committing — especially on assets with detailed normal maps or tight UV seams.</p></details>
+<details><summary>What should I simplify first?</summary><p>Open the profiler and sort by triangle count. The biggest meshes in the busiest scenes give you the largest frame-time win per minute of work — start there.</p></details>
+<details><summary>Can I get the original back?</summary><p>Yes — simplification produces a new mesh. Keep your high-poly originals in the project so you can re-simplify at a different target any time.</p></details>
 </div>
 <div class="related"><h2 class="sec">Related tools</h2><div class="grid">
 <div class="card"><h3>MeshWeld Pro Lite</h3><p>Combine simplified meshes and bake atlases — the natural next step.</p><div class="row"><span class="price">$23.99</span><a class="buy" href="meshweld-pro-lite-mesh-combiner.html">View →</a></div></div>

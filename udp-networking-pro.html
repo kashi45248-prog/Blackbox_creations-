@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UDP Networking Pro: LAN Discovery &amp; Messaging for Unity | BlackBox Creations</title>
+<title>UDP Networking Pro: LAN Multiplayer for Unity</title>
 <meta name="description" content="UDP Networking Pro adds auto device discovery, LAN messaging and multiplayer to Unity — VR, PC and mobile. No servers needed. $13.99, instant download.">
 <link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/udp-networking-pro.html">
 <meta property="og:title" content="UDP Networking Pro: LAN Discovery & Messaging for Unity">
@@ -39,16 +39,34 @@
 <p class="alt">Also on the <a href="https://assetstore.unity.com/packages/package/370348">Unity Asset Store</a></p>
 </div>
 </div>
+<figure style="margin:0 0 24px"><img src="itch-covers/cover-udp.png" alt="UDP Networking Pro connecting multiple devices for LAN multiplayer in Unity" width="630" height="500" loading="lazy" style="max-width:100%;height:auto;border-radius:12px;display:block"></figure>
 <div class="prose">
 <h2>Why LAN networking?</h2>
 <p>Not every multiplayer game needs the cloud. Same-room VR experiences, classroom apps, exhibitions, arcade setups and party games all run best on the local network — lower latency, no accounts, no server bills. UDP Networking Pro makes that trivial.</p>
 <h2>Who is it for?</h2>
 <p>Developers building local-multiplayer Unity games: VR arcades, co-located VR, mobile party games, interactive installations and prototypes that need devices talking to each other fast.</p>
 <div class="tutorial-link">📖 <strong>Free guide:</strong> <a href="tutorial-udp-networking-unity-lan.html">Unity Multiplayer with UDP: LAN Games Without Servers</a></div>
+
+<h2>How LAN discovery works</h2>
+<p>The most annoying part of local multiplayer is the part before the game starts: typing IP addresses, configuring ports, wondering why two devices cannot see each other. UDP Networking Pro removes it. Devices on the same local network discover each other automatically — no manual addressing, no configuration screens, no "what's your IP?" shouted across the room. For VR arcades, classrooms, and exhibitions, where the person setting up is not a network engineer, that alone is worth the price.</p>
+<h2>Messaging without servers</h2>
+<p>Once discovered, devices talk directly to each other over UDP: fast, lightweight datagrams with none of the handshake overhead of heavier protocols. You get LAN messaging primitives you can build on — position updates, game events, state changes — without standing up any server infrastructure at all. No hosting, no accounts, no monthly bill, no backend to maintain.</p>
+<h2>Why LAN beats the cloud for local play</h2>
+<p>For same-room play, the local network wins on every axis that matters. Latency is measured in single-digit milliseconds instead of tens or hundreds. There is no dependency on internet quality — the venue's shaky uplink does not matter when traffic never leaves the room. And the operations story is simple: no servers to provision, no player accounts to manage, no service that can go down on launch day.</p>
+<h2>What you still build yourself</h2>
+<p>Honest framing: this is a networking transport, not a finished multiplayer game. It handles discovery and messaging; your game logic — what to send, when to send it, how to resolve conflicts — is still yours to design. That is the right split: the fiddly, error-prone part (finding devices, moving bytes) is solved, and the creative part (your game's netcode design) stays in your hands.</p>
+
+<h2>Testing LAN play during development</h2>
+<p>Local multiplayer is unusually pleasant to test, because everything happens on hardware you can see. The standard setup: run one instance in the Unity Editor and a second on a device (or a second Editor instance) on the same network, and watch discovery connect them with no configuration. That tight loop — change code, test with two players in seconds — is a genuine development advantage over cloud multiplayer, where every test needs deployed infrastructure. Bugs in LAN play are also easier to reproduce: same room, same network, same result.</p>
 </div>
 <div class="faq">
 <details><summary>Do I need a server?</summary><p>No. Discovery and messaging happen directly between devices on the local network.</p></details>
 <details><summary>Does it work on Meta Quest?</summary><p>Yes — it's built for VR/PC/mobile Unity builds, including Quest headsets on the same network.</p></details>
+
+<details><summary>Can it work over the internet?</summary><p>No — this is a LAN tool. Discovery and messaging happen between devices on the same local network, which is exactly what gives it the low latency and zero-infrastructure story. For internet play you need a relay or server architecture instead.</p></details>
+<details><summary>What kinds of games is it for?</summary><p>Local-multiplayer Unity games: VR arcades and co-located VR, mobile party games, classroom apps, interactive installations, exhibitions — anywhere the players are in the same room or building.</p></details>
+<details><summary>Does it work on Meta Quest?</summary><p>Yes — it is built for VR, PC and mobile Unity builds, including Quest headsets on the same network as the other devices.</p></details>
+<details><summary>Is my game traffic secure on a LAN?</summary><p>LAN traffic stays inside the local network — it never touches the internet, which removes whole categories of exposure. For sensitive contexts like classrooms, treat the local network itself as the trust boundary: anyone on the same network can in principle observe unencrypted UDP traffic, so keep play sessions on networks you control.</p></details>
 </div>
 <div class="related"><h2 class="sec">Related tools</h2><div class="grid">
 <div class="card"><h3>ArcCanvas</h3><p>Curved VR UI — the perfect interface for your networked VR app.</p><div class="row"><span class="price">$17.99</span><a class="buy" href="arccanvas-curved-vr-ui-toolkit.html">View →</a></div></div>

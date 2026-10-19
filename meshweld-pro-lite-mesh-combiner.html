@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MeshWeld Pro Lite: Unity Mesh Combiner &amp; Texture Atlas | BlackBox Creations</title>
+<title>MeshWeld: Unity Mesh Combiner & Texture Atlas</title>
 <meta name="description" content="MeshWeld Pro Lite combines Unity meshes and bakes texture atlases to cut draw calls. One-click mesh combining for faster scenes. $23.99, instant download.">
 <link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/meshweld-pro-lite-mesh-combiner.html">
 <meta property="og:title" content="MeshWeld Pro Lite: Unity Mesh Combiner & Texture Atlas">
@@ -39,16 +39,30 @@
 <p class="alt">Also on the <a href="https://assetstore.unity.com/packages/package/374896">Unity Asset Store</a></p>
 </div>
 </div>
+<figure style="margin:0 0 24px"><img src="itch-covers/cover-meshweld.png" alt="MeshWeld Pro Lite combining Unity meshes and baking a texture atlas to reduce draw calls" width="630" height="500" loading="lazy" style="max-width:100%;height:auto;border-radius:12px;display:block"></figure>
 <div class="prose">
 <h2>Why combine meshes?</h2>
 <p>Every separate mesh is a draw call, and draw calls are one of the most common Unity performance bottlenecks — especially on mobile and VR. Combining meshes that share materials (or baking them into a shared atlas) is the standard fix, and MeshWeld automates it.</p>
 <h2>Who is it for?</h2>
 <p>Developers optimizing Unity scenes: mobile games, VR experiences, and anyone whose profiler is red on rendering. If you build environments from many small props, this pays for itself in an afternoon.</p>
 <div class="tutorial-link">📖 <strong>Free guide:</strong> <a href="tutorial-combine-meshes-reduce-draw-calls.html">How to Combine Meshes and Reduce Draw Calls in Unity</a></div>
+
+<h2>How the one-click workflow works</h2>
+<p>MeshWeld is built around the way Unity developers actually optimize: in short passes, between other tasks, without leaving the Editor. The workflow has four steps. First, select the static meshes you want to merge — a room full of props, a modular building kit, a batch of environment pieces. Second, run MeshWeld from the Editor. Third, the tool merges the geometry and bakes the source materials into a shared texture atlas, so the combined mesh keeps its look. Fourth, you get back fewer meshes, fewer materials, and fewer draw calls. There is no runtime code to integrate and no scene restructuring — it is a development-time operation: optimize once, ship the result.</p>
+<h2>Why combining alone is not enough</h2>
+<p>Newcomers to draw-call optimization often assume merging meshes is the whole job. It is only half. In Unity, every unique material on screen is typically its own draw call, so ten meshes sharing ten materials merged into one mesh still cost you ten draw calls. The real win comes from reducing the material count alongside the mesh count — and that is what the texture atlas baker is for. By packing your textures into atlases, MeshWeld lets the combined mesh render with a fraction of the materials, which is where the dramatic draw-call drops come from.</p>
+<h2>When MeshWeld helps most</h2>
+<p>The tool earns its price fastest on scenes built from many small static pieces: modular environments, prop-heavy interiors, stylized worlds assembled from kits. Mobile and VR projects feel the difference first, because those platforms have the least headroom for wasted draw calls. It is less useful for a single hero mesh (there is nothing to merge) or for skinned, animated characters — combining is a static-geometry technique, and honest tools say so.</p>
+<h2>MeshWeld vs. doing it by hand</h2>
+<p>The manual route — exporting meshes, merging them in a DCC tool, rebuilding materials, re-importing, fixing what broke — takes hours per batch and has to be repeated every time the art changes. MeshWeld compresses that into an in-Editor step you can rerun whenever the scene updates. The comparison is not really about quality; it is about whether optimization happens at all. The tool that takes minutes gets used. The pipeline that takes an afternoon gets postponed until the profiler is on fire.</p>
 </div>
 <div class="faq">
 <details><summary>Does it work at runtime or in the Editor?</summary><p>MeshWeld Pro Lite is an Editor workflow tool — combine once during development and ship the optimized result.</p></details>
 <details><summary>Will my materials survive combining?</summary><p>Yes — the texture atlas baker packs your materials so the combined mesh keeps its look.</p></details>
+
+<details><summary>How big a draw-call reduction should I expect?</summary><p>It depends on your scene. Prop-heavy environments with many small meshes and materials routinely see dramatic drops — that is exactly the case combining plus atlasing is designed for. Run Unity's profiler before and after on your own scene; the frame debugger will show you the difference directly.</p></details>
+<details><summary>Can I choose which meshes to combine?</summary><p>Yes — the workflow is selection-based. You pick the meshes, so hero assets, dynamic objects, or anything you want left alone simply stays out of the selection.</p></details>
+<details><summary>What happens to my original meshes?</summary><p>Nothing, unless you say so. Combine onto new objects and keep your originals until you are happy with the result — standard safe practice for any destructive optimization.</p></details>
 </div>
 <div class="related"><h2 class="sec">Related tools</h2><div class="grid">
 <div class="card"><h3>Mesh Simplifier</h3><p>Reduce tris and vertices first, then weld — the full optimization pair.</p><div class="row"><span class="price">$23.99</span><a class="buy" href="mesh-simplifier.html">View →</a></div></div>

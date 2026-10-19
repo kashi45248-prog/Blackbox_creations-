@@ -39,16 +39,34 @@
 <p class="alt">Also on the <a href="https://assetstore.unity.com/packages/package/371126">Unity Asset Store</a></p>
 </div>
 </div>
+<figure style="margin:0 0 24px"><img src="itch-covers/cover-smartprop.png" alt="Smart Prop Placement scattering props across a Unity scene with rule-based density" width="630" height="500" loading="lazy" style="max-width:100%;height:auto;border-radius:12px;display:block"></figure>
 <div class="prose">
 <h2>Why smart placement?</h2>
 <p>Environments need hundreds of props to feel alive, but hand-placing each one doesn't scale. Rule-based scattering fills large areas in minutes, and because it follows your rules, the result looks intentional rather than random.</p>
 <h2>Who is it for?</h2>
 <p>Level designers and environment artists in Unity — open worlds, interiors, VR scenes, anywhere props make the space believable.</p>
 <div class="tutorial-link">📖 <strong>Free guide:</strong> <a href="tutorial-scatter-props-unity.html">How to Scatter and Place Props in Unity Scenes</a></div>
+
+<h2>How rule-based scattering works</h2>
+<p>The workflow starts with your rules, not with randomness. Pick the prop prefabs, define the areas they may appear in, set density and variation, and let the tool fill the space. Because every placement follows your constraints, the result reads as a designed environment rather than noise — a forest that thins near paths, rubble that clusters near ruins, grass that avoids walkways. You describe the pattern; the tool does the thousand clicks.</p>
+<h2>Rules, not randomness</h2>
+<p>Pure random scattering looks wrong in a specific way: clumps where there should be spacing, props intersecting geometry, distribution that ignores the scene's logic. Rule-based placement fixes that by construction. Density controls how much appears, areas control where, variation keeps it from looking stamped out — and because you set all three, the output matches your art direction instead of fighting it.</p>
+<h2>Edit everything afterward</h2>
+<p>Scattering is a starting point, not a final answer. Every placed prop is a regular scene object: move it, rotate it, delete it, swap its prefab. The tool gets you to 90% in minutes; your eye and your art direction take it the rest of the way. Nothing is baked, locked, or hidden behind a proprietary format.</p>
+<h2>Pair it with optimization</h2>
+<p>Scattering hundreds of props creates a new problem: hundreds of draw calls. The fix pairs naturally with the rest of the BlackBox lineup — scatter first with Smart Prop Placement, then merge the static results with MeshWeld Pro Lite to collapse them back down. Design freely, optimize after: that is the intended workflow.</p>
+
+<h2>From scatter to shipped: a level-design pass</h2>
+<p>A realistic pass with Smart Prop Placement looks like this. Block out the level first — terrain, architecture, gameplay-critical objects placed by hand. Then define scatter areas for each prop family: vegetation along the edges, debris near points of interest, clutter inside interiors. Set density per area rather than globally; a forest floor and a courtyard should not share settings. Run the scatter, walk the level in Play mode, and hand-tweak the spots your eye catches — the tool did the thousand placements, you do the dozen that matter. Finally, combine the static results to keep draw calls in check, and the environment is shippable.</p>
 </div>
 <div class="faq">
 <details><summary>Random or controllable?</summary><p>Controllable. You set the rules — density, areas, variation — and the tool follows them. Nothing is pure chaos.</p></details>
 <details><summary>Can I still edit after scattering?</summary><p>Yes — placed props are regular scene objects you can move, delete or tweak individually.</p></details>
+
+<details><summary>Can I control exactly where props go?</summary><p>You control the areas, density and variation — then fine-tune by hand. The tool does the bulk placement; individual props remain fully editable scene objects for precise art direction.</p></details>
+<details><summary>Will hundreds of props hurt performance?</summary><p>Placed props are normal GameObjects, so the usual rules apply: keep counts sane for your target platform, and combine static props with a mesh combiner when draw calls climb. Scatter first, optimize after.</p></details>
+<details><summary>Can I re-scatter with different settings?</summary><p>Yes — adjust your rules and run the scatter again. Iterate on density and variation until the scene looks right; experimentation is cheap because placement takes minutes.</p></details>
+<details><summary>Does it work with prefabs?</summary><p>Yes — scattering places instances of your prefabs, so updating the prefab updates every placed prop at once. That makes the scatter-then-refine loop powerful: change the art once, and the whole forest, interior, or debris field follows.</p></details>
 </div>
 <div class="related"><h2 class="sec">Related tools</h2><div class="grid">
 <div class="card"><h3>NexPath</h3><p>A* pathfinding for characters moving through your dressed scenes.</p><div class="row"><span class="price">$17.99</span><a class="buy" href="nexpath-a-star-pathfinding.html">View →</a></div></div>
