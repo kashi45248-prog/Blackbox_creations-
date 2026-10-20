@@ -1,18 +1,1 @@
-{
-  "arccanvas": [],
-  "batch-lod-generator": [],
-  "complete-creator-bundle": [],
-  "mesh-simplifier": [],
-  "meshweld-pro-lite": [],
-  "nexpath": [],
-  "one-click-mesh-suite": [
-    {
-      "name": "Alex M.",
-      "source": "Unity Asset Store",
-      "rating": 5,
-      "text": "I used the Suite on a VR scene with 400+ static props, reducing hours of manual work to a few clicks. Draw calls dropped from thousands to the low hundreds, improving Quest performance. Batch LODs were clean with minimal popping, and texture atlasing preserved material appearance. A fast, reliable tool that delivers on its promises."
-    }
-  ],
-  "smart-prop-placement": [],
-  "udp-networking-pro": []
-}
+{"arccanvas":[],"batch-lod-generator":[],"complete-creator-bundle":[],"mesh-simplifier":[],"meshweld-pro-lite":[],"nexpath":[],"one-click-mesh-suite":[],"smart-prop-placement":[],"udp-networking-pro":[]}
