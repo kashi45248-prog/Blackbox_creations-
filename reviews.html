@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews – BlackBox Creations Unity Tools</title>
+<meta name="description" content="Real reviews from Unity developers using BlackBox Creations tools. Used one of our tools? Leave your rating and help other devs decide.">
+<link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/reviews.html">
+<meta property="og:title" content="Reviews – BlackBox Creations Unity Tools">
+<meta property="og:description" content="Real reviews from Unity developers using BlackBox Creations tools. Leave yours.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Black<span>Box</span> Creations</a>
+<nav class="main"><a href="index.html">Tools</a><a href="store.html">Store</a><a href="index.html#bundle">Bundles</a><a href="index.html#faq">FAQ</a></nav>
+</div></header>
+
+<div class="wrap">
+<div class="hero">
+<h1>Developer <span class="grad">reviews</span></h1>
+<p class="lead">Real feedback from Unity developers who use BlackBox Creations tools — bought here, on the Unity Asset Store, or on itch.io. No purchase on this site is needed to leave a review; if you've used a tool, your experience helps other devs.</p>
+</div>
+
+<section class="block" id="reviews-list">
+<h2 class="sec">What developers say</h2>
+<p>No reviews yet — be the first to share your experience below.</p>
+</section>
+
+<section class="block" id="leave-review">
+<h2 class="sec">Leave a review</h2>
+<p>Tell other developers how the tool worked in your project. Reviews are published with your name after a quick check that they're from a real user.</p>
+<form id="reviewForm">
+<p><label>Your name or studio<br>
+<input type="text" id="rvName" required style="width:100%;max-width:420px;padding:10px;border-radius:8px;border:1px solid #2a3558;background:#0d1321;color:#e5e9f2"></label></p>
+<p><label>Tool you used<br>
+<select id="rvTool" required style="width:100%;max-width:420px;padding:10px;border-radius:8px;border:1px solid #2a3558;background:#0d1321;color:#e5e9f2">
+<option>One Click Mesh Suite</option>
+<option>ArcCanvas – Curved VR UI Toolkit</option>
+<option>NexPath – A* Pathfinding</option>
+<option>MeshWeld Pro Lite</option>
+<option>Mesh Simplifier</option>
+<option>Batch LOD Generator</option>
+<option>UDP Networking Pro</option>
+<option>Smart Prop Placement</option>
+<option>The Complete Creator Bundle</option>
+</select></label></p>
+<p><label>Where did you get it?<br>
+<select id="rvSource" required style="width:100%;max-width:420px;padding:10px;border-radius:8px;border:1px solid #2a3558;background:#0d1321;color:#e5e9f2">
+<option>Unity Asset Store</option>
+<option>itch.io</option>
+<option>This website (Polar)</option>
+<option>Other</option>
+</select></label></p>
+<p><label>Your rating<br>
+<select id="rvRating" required style="width:100%;max-width:420px;padding:10px;border-radius:8px;border:1px solid #2a3558;background:#0d1321;color:#e5e9f2">
+<option value="5">★★★★★ – Excellent</option>
+<option value="4">★★★★ – Good</option>
+<option value="3">★★★ – Okay</option>
+<option value="2">★★ – Needs work</option>
+<option value="1">★ – Poor</option>
+</select></label></p>
+<p><label>Your review<br>
+<textarea id="rvText" required rows="5" style="width:100%;max-width:560px;padding:10px;border-radius:8px;border:1px solid #2a3558;background:#0d1321;color:#e5e9f2" placeholder="What did you build with it? What worked well?"></textarea></label></p>
+<p><button type="submit" class="btn">Send review</button></p>
+<p style="font-size:13px;opacity:.75">Submitting opens your email app with the review addressed to us — just press send. We publish genuine reviews as they arrive.</p>
+</form>
+</section>
+</div>
+
+<footer class="site"><div class="wrap">
+<span>© 2026 BlackBox Creations. All rights reserved.</span>
+<span><a href="https://assetstore.unity.com/publishers/138810">Unity Asset Store</a> · <a href="sitemap.xml">Sitemap</a></span>
+</div></footer>
+
+<script>
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name = document.getElementById('rvName').value.trim();
+  var tool = document.getElementById('rvTool').value;
+  var source = document.getElementById('rvSource').value;
+  var rating = document.getElementById('rvRating').value;
+  var text = document.getElementById('rvText').value.trim();
+  var subject = encodeURIComponent('Review: ' + tool + ' (' + rating + '/5)');
+  var body = encodeURIComponent('Name: ' + name + '\nTool: ' + tool + '\nSource: ' + source + '\nRating: ' + rating + '/5\n\n' + text);
+  window.location.href = 'mailto:supportblackboxcreations@gmail.com?subject=' + subject + '&body=' + body;
+});
+</script>
+</body>
+</html>
