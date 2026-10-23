@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexPath: A* Pathfinding for Unity (Grid-Based)</title>
+<title>A* Pathfinding for Unity – NexPath Grid Navigation</title>
 <meta name="description" content="NexPath brings fast A* grid pathfinding to Unity. Agents, obstacles and dynamic navigation for 2D and 3D games. $17.99, instant download.">
 <link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/nexpath-a-star-pathfinding.html">
 <meta property="og:title" content="NexPath: A* Grid Pathfinding for Unity">
@@ -11,6 +11,7 @@
 <meta property="og:type" content="product">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"NexPath \u2014 A* Grid Pathfinding & Navigation","description":"A* grid pathfinding and navigation system for Unity. Agents, obstacles and dynamic navigation for 2D and 3D games.","brand":{"@type":"Brand","name":"BlackBox Creations"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"17.99","availability":"https://schema.org/InStock","url":"https://buy.polar.sh/polar_cl_ydpBIA2YPtPblFsIodsQNcN70mqnPjjrIlI3a0ovsLs","hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"US","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":14,"returnMethod":"https://schema.org/ReturnByMail","returnFees":"https://schema.org/FreeReturn"}},"image":"https://kashi45248-prog.github.io/Blackbox_creations-/itch-covers/cover-nexpath.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "2D or 3D?", "acceptedAnswer": {"@type": "Answer", "text": "Both. NexPath handles 2D grids (top-down, isometric) and 3D grid navigation."}}, {"@type": "Question", "name": "How is this different from NavMesh?", "acceptedAnswer": {"@type": "Answer", "text": "Unity's NavMesh bakes navigation meshes; NexPath works on grids, which many game types (tiles, voxels, roguelikes) prefer for control and predictability."}}, {"@type": "Question", "name": "Can paths update while the game is running?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — dynamic navigation is a core feature. Change which cells are blocked at runtime and agents find new routes around the changes."}}, {"@type": "Question", "name": "How big a grid can it handle?", "acceptedAnswer": {"@type": "Answer", "text": "Pathfinding cost scales with grid size and agent count, like any A* implementation. Keep the grid tight around the actual play area rather than covering the whole world, and profile with your real agent counts — standard practice for grid pathfinding."}}, {"@type": "Question", "name": "Is grid pathfinding deterministic?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — given the same grid and the same query, A* returns the same path every time. That predictability is one reason grid games prefer it: replays and debugging all get easier."}}]}</script>
 </head>
 <body>
 <header class="site"><div class="wrap">
