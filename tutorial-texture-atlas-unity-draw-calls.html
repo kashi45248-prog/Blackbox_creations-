@@ -20,6 +20,7 @@
 "author":{"@type":"Organization","name":"BlackBox Creations"},
 "mainEntityOfPage":"https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-texture-atlas-unity-draw-calls.html"}
 </script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a texture atlas in Unity?", "acceptedAnswer": {"@type": "Answer", "text": "A texture atlas packs many small textures into one big texture. Since a draw call is per material as well as per mesh, atlasing lets merged meshes share a single material — turning many draw calls into one."}}, {"@type": "Question", "name": "Do texture atlases work for 3D models or only sprites?", "acceptedAnswer": {"@type": "Answer", "text": "Both — but most Unity documentation covers sprites only. For 3D meshes, the atlas is baked from the source materials during the combine step, which is what lets merged 3D geometry draw in a single call."}}, {"@type": "Question", "name": "Does atlasing reduce build size too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — fewer materials and fewer meshes mean less data to store and ship, on top of the frame-rate win from fewer draw calls."}}]}</script>
 </head>
 <body>
 <header class="site"><div class="wrap">
@@ -89,8 +90,8 @@ RemapUVsToAtlas(propMesh, new Rect(0.5f, 0.5f, 0.5f, 0.5f));</code></pre>
 
 <div class="cta-box">
 <h3>Combine meshes + bake atlases in one click</h3>
-<p>MeshWeld Pro Lite — mesh combining with automatic texture atlas baking, right in the Unity Editor. <strong>$23.99</strong> direct.</p>
-<a class="btn" href="https://buy.polar.sh/polar_cl_D91iuwdBOHeKdr3YOkamnnODOGd8SE6rfNXc81OTw5r">Get MeshWeld Pro Lite — $23.99</a>
+<p>MeshWeld Pro Lite — mesh combining with automatic texture atlas baking, right in the Unity Editor. <strong>$22.99</strong> direct.</p>
+<a class="btn" href="https://buy.polar.sh/polar_cl_D91iuwdBOHeKdr3YOkamnnODOGd8SE6rfNXc81OTw5r">Get MeshWeld Pro Lite — $22.99</a>
 <p class="alt">Or see <a href="meshweld-pro-lite-mesh-combiner.html">full details</a> · Also on the <a href="https://assetstore.unity.com/packages/package/374896">Unity Asset Store</a> ($23.99)</p>
 </div>
 
@@ -98,9 +99,21 @@ RemapUVsToAtlas(propMesh, new Rect(0.5f, 0.5f, 0.5f, 0.5f));</code></pre>
 <p>Don't trust vibes — verify with the <strong>Frame Debugger</strong> (Window → Analysis → Frame Debugger). Before the atlas, you'll see one draw event per material; after, the atlased props collapse into a single draw event. Check the Game view <strong>Stats</strong> panel too: watch "Batches" drop. A typical prop-heavy scene goes from 150–300 batches to under 50 with combining + atlasing, which is often the difference between a stuttering 40fps and a locked 60 on mid-range hardware.</p>
 <p>One more check: profile on your actual target device. Draw-call overhead is CPU-side, so a scene that runs fine on your development PC can still choke a phone or Quest — the atlas savings show up biggest exactly where you need them.</p>
 </article>
+<h2>Texture atlases for 3D meshes: the missing Unity guide</h2>
+<p>Almost every texture-atlas guide for Unity covers 2D sprites. For 3D scenes the need is just as real and far less documented: dozens of small meshes, each with its own material, each costing a draw call.</p>
+<p>The 3D workflow is: merge the meshes, then bake their materials into one shared atlas so the result draws in a single call. Skip the atlas and the merge alone barely moves the needle — the calls follow the materials, not the geometry.</p>
+<p>That is why atlas baking belongs inside the combine step, not after it. Done together, one pass takes a prop-heavy scene from dozens of draw calls to a handful.</p>
+<section class="block" id="faq">
+<h2 class="sec">FAQ</h2>
+<div class="faq">
+<details><summary>What is a texture atlas in Unity?</summary><p>A texture atlas packs many small textures into one big texture. Since a draw call is per material as well as per mesh, atlasing lets merged meshes share a single material — turning many draw calls into one.</p></details>
+<details><summary>Do texture atlases work for 3D models or only sprites?</summary><p>Both — but most Unity documentation covers sprites only. For 3D meshes, the atlas is baked from the source materials during the combine step, which is what lets merged 3D geometry draw in a single call.</p></details>
+<details><summary>Does atlasing reduce build size too?</summary><p>Yes — fewer materials and fewer meshes mean less data to store and ship, on top of the frame-rate win from fewer draw calls.</p></details>
+</div>
+</section>
 <div class="related"><h2 class="sec">Related tools</h2><div class="grid">
-<div class="card"><h3>One Click Mesh Suite</h3><p>Combine, simplify, and LOD your meshes in one automated pass.</p><div class="row"><span class="price">$72.99</span><a class="buy" href="mesh-suite-lod-optimizer.html">View →</a></div></div>
-<div class="card"><h3>Mesh Simplifier</h3><p>Cut triangle counts before baking your atlas.</p><div class="row"><span class="price">$23.99</span><a class="buy" href="mesh-simplifier.html">View →</a></div></div>
+<div class="card"><h3>One Click Mesh Suite</h3><p>Combine, simplify, and LOD your meshes in one automated pass.</p><div class="row"><span class="price">$71.99</span><a class="buy" href="mesh-suite-lod-optimizer.html">View →</a></div></div>
+<div class="card"><h3>Mesh Simplifier</h3><p>Cut triangle counts before baking your atlas.</p><div class="row"><span class="price">$22.99</span><a class="buy" href="mesh-simplifier.html">View →</a></div></div>
 </div></div>
 <div class="tutorial-link">New to mesh combining? Start with <a href="tutorial-combine-meshes-reduce-draw-calls.html">How to Combine Meshes and Reduce Draw Calls in Unity</a>.</div>
 </div>
