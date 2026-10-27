@@ -23,6 +23,11 @@
 "author":{"@type":"Organization","name":"BlackBox Creations"},
 "mainEntityOfPage":"https://kashi45248-prog.github.io/Blackbox_creations-/tutorial-static-batching-vs-mesh-combining.html"}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does static batching work on mobile and Quest?","acceptedAnswer":{"@type":"Answer","text":"It works, but its memory cost makes it the weaker choice on memory-tight hardware. Unity stores a transformed copy of every batched mesh, so dense scenes balloon in memory. On mobile and Quest, manual combining with chunking usually wins."}},
+{"@type":"Question","name":"Can you use static batching and mesh combining together?","acceptedAnswer":{"@type":"Answer","text":"Yes, per object group — static-batch the hero architecture where occlusion culling matters, and manually combine the repeated prop sets. Never mark a manually combined mesh as Static, or you pay both techniques' costs at once."}}]}
+</script>
 </head>
 <body>
 <header class="site"><div class="wrap">
@@ -117,6 +122,13 @@ public static class BatchHelper
 
 <h2>Verify with the Frame Debugger</h2>
 <p>Whichever you choose, prove it worked: open <strong>Window → Analysis → Frame Debugger</strong>, enable it, and step through a frame. Static-batched geometry shows as combined draw events per material; manual combines show as single mesh draws. Compare the Game view Stats "Batches" number before and after. If batches didn't drop, you have a material-count problem, not a geometry problem — go read the texture atlas guide next.</p>
+
+<h2>Static batching on mobile and Quest: when to skip it</h2>
+<p>On memory-constrained platforms like mobile and Meta Quest, static batching's memory cost hurts most — the duplicated transformed geometry competes with textures and game code for a small memory budget. The safer default there is manual combining with chunking: combine per room or per 20-meter tile, bake one atlas per chunk, and keep culling granularity. Reserve static batching on Quest for small sets of genuinely static architecture where per-object occlusion culling matters more than the memory. If your frame budget is the Quest 72 FPS target, start with the <a href="tutorial-meta-quest-72fps-mesh-optimization.html">Quest 72 FPS mesh checklist</a> and apply combining before reaching for the Static flag.</p>
+
+<h2 class="sec">FAQ</h2>
+<p><strong>Does static batching work on mobile and Quest?</strong><br>It works, but its memory cost makes it the weaker choice on memory-tight hardware. Unity stores a transformed copy of every batched mesh, so dense scenes balloon in memory. On mobile and Quest, manual combining with chunking usually wins.</p>
+<p><strong>Can you use static batching and mesh combining together?</strong><br>Yes, per object group — static-batch the hero architecture where occlusion culling matters, and manually combine the repeated prop sets. Never mark a manually combined mesh as Static, or you pay both techniques' costs at once.</p>
 </article>
 <div class="related"><h2 class="sec">Related tools</h2><div class="grid">
 <div class="card"><h3>One Click Mesh Suite</h3><p>Batch LOD, simplification, and combining in one automated pass.</p><div class="row"><span class="price">$71.99</span><a class="buy" href="mesh-suite-lod-optimizer.html">View →</a></div></div>
