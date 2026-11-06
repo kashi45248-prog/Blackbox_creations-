@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity Save System Asset – VaultSave AES-256 Backup</title>
+<meta name="description" content="VaultSave is a Unity save system with AES-256 encryption, automatic backups and save migration. Player progress that survives updates.">
+<link rel="canonical" href="https://kashi45248-prog.github.io/Blackbox_creations-/vaultsave.html">
+<meta property="og:title" content="Unity Save System Asset – VaultSave AES-256 Backup">
+<meta property="og:description" content="A Unity save system with AES-256 encryption, automatic backups and save migration — player progress that survives updates.">
+<meta property="og:type" content="product">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"VaultSave","description":"Unity save system with AES-256 encryption, automatic backups and save migration. Player progress that survives updates.","brand":{"@type":"Brand","name":"BlackBox Creations"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"19.98","availability":"https://schema.org/InStock","url":"https://assetstore.unity.com/packages/package/408318"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is VaultSave?", "acceptedAnswer": {"@type": "Answer", "text": "VaultSave is a save system for Unity games: it stores player progress — levels, inventory, settings, unlocks — in encrypted files with automatic backups, so progress survives crashes, corruption, and game updates."}}, {"@type": "Question", "name": "Why encrypt save files?", "acceptedAnswer": {"@type": "Answer", "text": "Unencrypted saves are plain text anyone can edit — free currency, unlocked levels, skipped progress. AES-256 encryption makes casual save editing impractical, which protects leaderboards, achievements, and any progression players could otherwise fake."}}, {"@type": "Question", "name": "What happens if a save file gets corrupted?", "acceptedAnswer": {"@type": "Answer", "text": "That is what the automatic backups are for. If the main save is damaged — a crash mid-write, a full disk, a bad shutdown — VaultSave falls back to the most recent backup instead of handing the player a blank game."}}, {"@type": "Question", "name": "How does save migration work?", "acceptedAnswer": {"@type": "Answer", "text": "Games change: new fields appear, old ones disappear, formats evolve. Migration means a save written by version 1.0 still loads in version 1.5 — the system upgrades the old data to the new format instead of discarding it and starting the player over."}}, {"@type": "Question", "name": "What can I save with VaultSave?", "acceptedAnswer": {"@type": "Answer", "text": "Anything your game needs to remember between sessions: player level and experience, inventory, unlocked content, settings, checkpoint progress, high scores. If it is game state, it belongs in the save file."}}, {"@type": "Question", "name": "How do I save a game in Unity?", "acceptedAnswer": {"@type": "Answer", "text": "Collect the state you need to remember, hand it to the save system, and let it write the encrypted file with a backup. Loading reverses the process: read the file, restore the state, and the player continues where they left off."}}, {"@type": "Question", "name": "What should a save system handle across platforms?", "acceptedAnswer": {"@type": "Answer", "text": "Different platforms store files in different places and fail in different ways — a phone killed mid-write, a PC with a full disk. A save system earns its keep by handling those realities for you: safe writes, backups, and a load path that degrades gracefully instead of crashing."}}, {"@type": "Question", "name": "Can save files be moved between devices?", "acceptedAnswer": {"@type": "Answer", "text": "VaultSave stores saves locally on the device. Moving a save between devices is a file operation — copy the save file — not something a local save system syncs by itself. If you need cloud sync, that is a separate system on top."}}, {"@type": "Question", "name": "Is AES-256 encryption fast enough for games?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — encrypting a save file is a tiny amount of work compared to loading a level or a texture. Save files are small, encryption happens once per save, and modern devices handle AES-256 with hardware support. Players will never feel it."}}, {"@type": "Question", "name": "What is the difference between PlayerPrefs and a save system?", "acceptedAnswer": {"@type": "Answer", "text": "PlayerPrefs is a simple key-value store for settings — volume, quality, a high score. It is not a save system: no structure for complex game state, no encryption, no backups, no migration. The moment your save needs more than a few settings, you need a real save system."}}, {"@type": "Question", "name": "Can I version my saves?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — that is what migration is built on. Each save carries a version, and when the game loads an older version, the system upgrades it step by step to the current format. Versioning is what makes updates safe for existing players."}}, {"@type": "Question", "name": "Do backups take up a lot of space?", "acceptedAnswer": {"@type": "Answer", "text": "No — save files are small, usually kilobytes, so keeping a few backup copies costs almost nothing. The storage cost of a backup is trivial; the cost of losing a player's hundred-hour save is not."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Black<span>Box</span> Creations</a>
+<nav class="main"><a href="index.html">Tools</a><a href="index.html#bundle">Bundles</a><a href="reviews.html">Reviews</a><a href="index.html#faq">FAQ</a></nav>
+</div></header>
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Tools</a> / VaultSave</p>
+<div class="tool-hero">
+<div>
+<span class="badge">Save System</span>
+<h1>VaultSave — Unity Save System with AES-256 &amp; Backups</h1>
+<p class="tag">A lost save is a lost player. VaultSave keeps Unity player progress safe with AES-256 encryption, automatic backups, and migration that survives updates.</p>
+<ul class="feats">
+<li><b>AES-256 encryption</b> — save files players can't casually edit or fake.</li>
+<li><b>Automatic backups</b> — a corrupt save doesn't end the game.</li>
+<li><b>Save migration</b> — old saves keep working after updates.</li>
+<li><b>Simple API</b> — save and load without building the system yourself.</li>
+</ul>
+</div>
+<div class="buybox">
+<div class="price">$19.98 <span style="font-size:.9rem;color:var(--muted)">USD · Unity Asset Store</span></div>
+<p class="direct-save">Instant download from the Unity Asset Store</p>
+<p class="note">One-time purchase · Unity Asset Store</p>
+<a class="btn" href="https://assetstore.unity.com/packages/package/408318">Buy on the Unity Asset Store</a>
+</div>
+</div>
+<div class="prose">
+<h2>Why saves break</h2>
+<p>Saves break in boring ways: a crash mid-write, a full disk, a player force-quitting at the wrong second, an update that changes what a save contains. Each one is rare; across thousands of players, each one is guaranteed. A save system exists for the guaranteed cases — the day a player's hundred-hour save meets a bad shutdown should not be the day they uninstall your game.</p>
+<h2>Who is it for?</h2>
+<p>Unity developers shipping games where progress matters — RPGs, roguelikes, builders, anything with unlocks, levels, or inventory that players would hate to lose.</p>
+
+<h2>How AES-256 encryption protects saves</h2>
+<p>An unencrypted save is a text file anyone can open and edit: free currency, unlocked levels, skipped progression. That matters the moment your game has leaderboards, achievements, or anything competitive — and it matters for single-player games too, because edited saves produce bug reports for states the game never created. AES-256 encryption makes casual editing impractical. It does not make saves unbreakable against a determined attacker — nothing does — but it moves save editing from "open in Notepad" to "not worth the effort," which is where it needs to be.</p>
+<h2>Backups: the save that saves the save</h2>
+<p>Encryption protects saves from players; backups protect saves from reality. A crash during a write leaves a half-written file, and without a backup the only answer is a fresh start. VaultSave keeps automatic backup copies, so a damaged main save falls back to the most recent good one. The player loses minutes, not a campaign. Backups are cheap — save files are kilobytes — and the one time they matter, they matter completely.</p>
+<h2>Migration: updates shouldn't wipe progress</h2>
+<p>Games change after launch: new fields appear, old ones disappear, formats evolve. Without migration, an update that changes the save format strands every existing player on a save the new version cannot read — which reads, to the player, as the update deleting their progress. Migration means each save carries a version, and loading an older version upgrades it step by step to the current format. Updates ship, saves survive, nobody notices — which is exactly how it should feel.</p>
+<h2>What belongs in a save file</h2>
+<p>The rule is simple: save what the player would miss. Level and experience, inventory, unlocked content, settings, checkpoint progress, high scores — anything that represents time the player spent. Do not save what can be rebuilt: derived stats, cached data, anything the game can recompute on load. Smaller saves load faster, back up cheaper, and migrate more safely.</p>
+<h2>PlayerPrefs vs. a real save system</h2>
+<p>PlayerPrefs is fine for settings — volume, graphics quality, a high score. It is a key-value store, not a save system: no structure for complex game state, no encryption, no backups, no migration. The moment your save needs more than a few settings — an inventory, a quest state, a world — PlayerPrefs is the wrong tool, and the rewrite always happens at the worst possible time: after launch, with players already depending on it.</p>
+<h2>Save versioning done right</h2>
+<p>Versioning is a discipline, not a feature toggle. Every save gets a version number when written. Every load checks it. When the version is old, migration runs the upgrade path — one step per version, in order, so a save from three updates ago still arrives intact. The discipline that makes it work: never change the meaning of a field without bumping the version, and never ship an update without testing a load from the oldest save you support.</p>
+<h2>A typical save/load flow</h2>
+<p>In practice the flow is short. On save: collect the state, hand it to VaultSave, and let it write the encrypted file and rotate the backup. On load: read the file, check the version, migrate if needed, and restore the state. On a damaged file: fall back to the backup automatically. The whole point of a save system is that this flow is boring — the interesting parts of your game are everywhere else.</p>
+
+<h2>When a save system is overkill</h2>
+<p>Not every game needs one. An arcade game with a single high score, a demo with no progression, a jam game that lasts ten minutes — PlayerPrefs covers those, honestly. A save system earns its place the moment progress has value: hours of play, unlocks, a world the player built. If losing the save would make a player quit, you need the system. If it would make them shrug, you don't.</p>
+
+<h2>Getting started checklist</h2>
+<p>A quick way to evaluate a save system in an afternoon: save a test game state, corrupt the save file on purpose, and confirm the backup restores it. Then bump the save version, load the old save, and confirm migration works. Then check the encrypted file is not readable as plain text. Those three checks — backup, migration, encryption — are the whole value of the tool, and they take an hour to verify.</p>
+</div>
+<h2>Saves that survive updates</h2>
+<p>Players forgive a lot — bugs, balance, even a bad level. They do not forgive a lost save. VaultSave treats player progress as the most valuable file in your game: AES-256 encryption against tampering, automatic backups against corruption, and migration so updates never strand an old save. The best save system is the one players never think about, because it never fails them.</p>
+
+<div class="faq">
+<details><summary>What is VaultSave?</summary><p>VaultSave is a save system for Unity games: it stores player progress — levels, inventory, settings, unlocks — in encrypted files with automatic backups, so progress survives crashes, corruption, and game updates.</p></details>
+<details><summary>Why encrypt save files?</summary><p>Unencrypted saves are plain text anyone can edit — free currency, unlocked levels, skipped progress. AES-256 encryption makes casual save editing impractical, which protects leaderboards, achievements, and any progression players could otherwise fake.</p></details>
+
+<details><summary>What happens if a save file gets corrupted?</summary><p>That is what the automatic backups are for. If the main save is damaged — a crash mid-write, a full disk, a bad shutdown — VaultSave falls back to the most recent backup instead of handing the player a blank game.</p></details>
+<details><summary>How does save migration work?</summary><p>Games change: new fields appear, old ones disappear, formats evolve. Migration means a save written by version 1.0 still loads in version 1.5 — the system upgrades the old data to the new format instead of discarding it and starting the player over.</p></details>
+<details><summary>What can I save with VaultSave?</summary><p>Anything your game needs to remember between sessions: player level and experience, inventory, unlocked content, settings, checkpoint progress, high scores. If it is game state, it belongs in the save file.</p></details>
+<details><summary>How do I save a game in Unity?</summary><p>Collect the state you need to remember, hand it to the save system, and let it write the encrypted file with a backup. Loading reverses the process: read the file, restore the state, and the player continues where they left off.</p></details>
+<details><summary>What should a save system handle across platforms?</summary><p>Different platforms store files in different places and fail in different ways — a phone killed mid-write, a PC with a full disk. A save system earns its keep by handling those realities for you: safe writes, backups, and a load path that degrades gracefully instead of crashing.</p></details>
+<details><summary>Can save files be moved between devices?</summary><p>VaultSave stores saves locally on the device. Moving a save between devices is a file operation — copy the save file — not something a local save system syncs by itself. If you need cloud sync, that is a separate system on top.</p></details>
+<details><summary>Is AES-256 encryption fast enough for games?</summary><p>Yes — encrypting a save file is a tiny amount of work compared to loading a level or a texture. Save files are small, encryption happens once per save, and modern devices handle AES-256 with hardware support. Players will never feel it.</p></details>
+<details><summary>What is the difference between PlayerPrefs and a save system?</summary><p>PlayerPrefs is a simple key-value store for settings — volume, quality, a high score. It is not a save system: no structure for complex game state, no encryption, no backups, no migration. The moment your save needs more than a few settings, you need a real save system.</p></details>
+<details><summary>Can I version my saves?</summary><p>Yes — that is what migration is built on. Each save carries a version, and when the game loads an older version, the system upgrades it step by step to the current format. Versioning is what makes updates safe for existing players.</p></details>
+<details><summary>Do backups take up a lot of space?</summary><p>No — save files are small, usually kilobytes, so keeping a few backup copies costs almost nothing. The storage cost of a backup is trivial; the cost of losing a player's hundred-hour save is not.</p></details>
+</div>
+<div class="related"><h2 class="sec">Related tools</h2><div class="grid">
+<div class="card"><h3>NexPath</h3><p>Save agent progress and world state — pathfinding your players return to.</p><div class="row"><span class="price">$16.99</span><a class="buy" href="nexpath-a-star-pathfinding.html">View →</a></div></div>
+<div class="card"><h3>UDP Networking Pro</h3><p>Save multiplayer progress — LAN games with state worth keeping.</p><div class="row"><span class="price">$12.99</span><a class="buy" href="udp-networking-pro.html">View →</a></div></div>
+<div class="card"><h3>Playtest Analytics</h3><p>Learn where players quit — then make sure their progress is never the reason.</p><div class="row"><span class="price">$15.99</span><a class="buy" href="playtest-analytics.html">View →</a></div></div>
+<div class="card"><h3>ArcCanvas</h3><p>Curved VR UI — including the save/load screens your players actually see.</p><div class="row"><span class="price">$16.99</span><a class="buy" href="arccanvas-curved-vr-ui-toolkit.html">View →</a></div></div>
+</div></div>
+<p style="margin-top:12px"><a href="store.html">Browse all 11 tools →</a></p>
+</div>
+<section class="block" id="tool-reviews">
+<h2 class="sec">Developer reviews</h2>
+<div id="bb-reviews" data-tool="vaultsave"></div>
+</section>
+<script src="reviews-data.js"></script>
+<script>bbRenderReviews();</script>
+<footer class="site"><div class="wrap">
+<span>© 2026 BlackBox Creations. All rights reserved.</span>
+<span><a href="https://assetstore.unity.com/publishers/138810">Unity Asset Store</a> · <a href="sitemap.xml">Sitemap</a></span>
+</div></footer>
+</body>
+</html>
