@@ -54,6 +54,18 @@
 <p>Authoring LODs by hand is exactly as tedious as it sounds, which is why most projects never do it for their full library. Batch LOD Generator removes the authoring cost: point it at your model library, and it generates LOD levels for everything in one click. Each model's levels are wired into Unity's LODGroup component automatically, so the engine handles the distance-based swapping with zero runtime code from you.</p>
 <h2>How LODGroup uses the levels</h2>
 <p>Unity's LODGroup swaps a model's rendered version based on how much screen space it occupies. Close up: full detail. Mid-distance: the first reduction. Far away: the cheapest version — or culled entirely. The thresholds are the standard LODGroup screen-size percentages, so the behavior is the same system Unity developers already know, just with the authoring done for them.</p>
+<h2>Batch LOD Generator vs Unity's built-in LODGroup</h2>
+<p>Unity's LODGroup is the swapping system, not a generator: it switches between mesh versions by screen size, but it cannot create the cheaper versions for you. That is the whole gap. With LODGroup alone, every reduced mesh has to be authored by hand or in an external tool, then assigned to the group model by model. Batch LOD Generator does the authoring and the wiring, in the Editor, with no runtime cost.</p>
+<table class="compare">
+<tr><th></th><th>Unity's built-in LODGroup alone</th><th>Batch LOD Generator</th></tr>
+<tr><td>Create the reduced meshes</td><td>You author each one by hand, or in an external tool, per model</td><td>Generated automatically, multiple stepped-down levels per model</td></tr>
+<tr><td>Assign levels to LODGroup</td><td>Manual, model by model, with thresholds set by hand</td><td>Wired in automatically, with screen-size thresholds you can tune</td></tr>
+<tr><td>Whole model library</td><td>Repeat the same work for every model</td><td>One click covers dozens or hundreds of models in a single pass</td></tr>
+<tr><td>Source models</td><td>Kept, but every level is a separate manual asset to manage</td><td>Stay untouched — generated levels sit alongside them in the LODGroup</td></tr>
+<tr><td>Runtime cost</td><td>None — swapping is Unity's built-in system</td><td>None — the work happens in the Editor, no runtime code</td></tr>
+<tr><td>Best for</td><td>A handful of models, or hero assets you want to author by hand</td><td>Full libraries, open worlds, and mobile/VR projects where every prop needs LODs</td></tr>
+</table>
+<p>If you only have a few models, LODGroup alone is fine. If you have a library, the manual route is what stops most projects ever getting LODs at all — and that is the job this tool exists to remove.</p>
 <h2>Generated vs. hand-authored LODs</h2>
 <p>Honest answer: for the vast majority of props and environment models, generated LODs are more than good enough — nobody inspects a background crate at LOD2. Reserve hand-authoring for hero assets where silhouette changes would be noticeable. That split — generated for the many, hand-made for the few — is how professional teams actually work, and it is the workflow this tool is built for.</p>
 
