@@ -66,9 +66,14 @@ window.bbRenderReviews = function () {
         });
       });
       if (count === 0) {
-        var p = document.createElement("p");
-        p.innerHTML = 'No reviews yet — be the first to <a href="reviews.html#leave-review">share your experience</a>.';
-        box.appendChild(p);
+        if (only) {
+          var sec = document.getElementById("tool-reviews");
+          if (sec) sec.style.display = "none";
+        } else {
+          var p = document.createElement("p");
+          p.innerHTML = 'No reviews yet — be the first to <a href="reviews.html#leave-review">share your experience</a>.';
+          box.appendChild(p);
+        }
       } else {
         box.appendChild(grid);
       }
