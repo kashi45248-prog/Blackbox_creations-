@@ -57,6 +57,7 @@
 
 <h2>Performance notes</h2>
 <p>A* on large grids with many agents can get expensive — keep your grid resolution as coarse as your gameplay allows, cache paths instead of recomputing every frame, and stagger path requests across frames for crowds. A well-tuned grid solver handles hundreds of agents without breaking a sweat.</p>
+<p>Once your characters move, the game needs to remember where they are — <a href="vaultsave.html">VaultSave</a> stores player progress with AES-256 encryption and automatic backups, so progress survives updates.</p>
 </article>
 <div class="card" style="margin:24px 0">
 <img src="assetstore-covers/cover-nexpath.jpg" alt="Add fast A* pathfinding to your Unity game — NexPath, $16.99" style="max-width:100%;border-radius:12px">

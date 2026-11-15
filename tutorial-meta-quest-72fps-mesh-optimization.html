@@ -96,7 +96,7 @@ void Start()
 </div>
 
 <h2>Verify on device, not in the editor</h2>
-<p>The Unity editor on your PC tells you almost nothing about Quest performance. Always verify with <strong>OVR Metrics</strong> (the on-headset overlay: FPS, CPU/GPU utilization, thermal state) and the <strong>Unity Profiler</strong> connected to a Quest build. Your targets: locked 72 FPS, GPU utilization under ~80% (headroom for thermal throttling), and frame times consistently under 13.9ms during your heaviest gameplay moments — not just standing in an empty room.</p>
+<p>The Unity editor on your PC tells you almost nothing about Quest performance. Always verify with <strong>OVR Metrics</strong> (the on-headset overlay: FPS, CPU/GPU utilization, thermal state) and the <strong>Unity Profiler</strong> connected to a Quest build. Your targets: locked 72 FPS, GPU utilization under ~80% (headroom for thermal throttling), and frame times consistently under 13.9ms during your heaviest gameplay moments — not just standing in an empty room. For the player side of verification, <a href="playtest-analytics.html">Playtest Analytics</a> records how real testers actually play — heatmaps, session replays and reports stored locally, with no backend.</p>
 <p>If you're still missing the target after the mesh pass, the next suspects are scripts (GC allocations per frame), physics (too many active rigidbodies), and post-processing (turn it all off on Quest — every effect costs milliseconds you don't have).</p>
 
 <h2>Quest 72 FPS vs 90 FPS: which target should you ship?</h2>
